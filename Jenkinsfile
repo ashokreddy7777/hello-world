@@ -1,13 +1,15 @@
 def call ( Map propertyInfo ) {
     def buildOptions = 'build_options'
-    
-   // node('master') {
-   //     stage()
+    /*
+    node('master') {
+        stage('get info') {
+            checkout scm
+*/
+            def tmpInfo = readProperties file: "${buildOptions}"
+            propertyInfo << tmpInfo
+       // }
     //}
-    def tmpInfo = readProperties file: "${buildOptions}"
-    propertyInfo << tmpInfo
-}
-
+    
 pipeline {
     agent any //{ label propertyInfo.build_agent_label}
     stages {
@@ -19,4 +21,5 @@ pipeline {
             }
         }
     }
+}
 }
