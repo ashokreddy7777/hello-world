@@ -1,3 +1,4 @@
+/*
 def call ( Map propertyInfo ) {
     def buildOptions = 'build_options'
     
@@ -9,7 +10,9 @@ def call ( Map propertyInfo ) {
             propertyInfo << tmpInfo
         }
     }
-    
+*/
+def buildOptions = 'build_options'
+def propertyInfo = readFile ('buildOptions')    
  pipeline {
     agent any //{ label propertyInfo.build_agent_label}
     stages {
