@@ -10,7 +10,7 @@ def call ( Map propertyInfo ) {
         }
     }
     
-pipeline {
+ pipeline {
     agent any //{ label propertyInfo.build_agent_label}
     stages {
         stage('testing build file') {
