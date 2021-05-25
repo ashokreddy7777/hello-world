@@ -14,9 +14,9 @@ pipeline {
         stage('testing build file') {
             steps {
                 sh ''' 
-                echo "${propertyInfo.build_agent_label}"
-                echo "${propertyInfo.build_technology}"
-                echo "${propertyInfo.release_branch}"
+                echo ${propertyInfo.build_agent_label}
+                echo ${propertyInfo.build_technology}
+                echo ${propertyInfo.release_branch}
                 '''
             }
         }
