@@ -11,8 +11,7 @@ def call ( Map propertyInfo ) {
         }
     }
 */
-def buildOptions = 'build_options'
-def propertyInfo = readFile ('buildOptions')    
+   
 
 pipeline {
     agent any //{ label propertyInfo.build_agent_label}
@@ -26,3 +25,5 @@ pipeline {
         }
     }
 }
+def buildOptions = 'build_options'
+def propertyInfo = readFile ('buildOptions') 
