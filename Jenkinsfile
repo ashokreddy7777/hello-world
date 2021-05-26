@@ -12,7 +12,10 @@ def call ( Map propertyInfo ) {
     }
 */
    
-
+node {
+    def buildOptions = 'build_options'
+    def propertyInfo = load 'buildOptions'
+}
 pipeline {
     agent any //{ label propertyInfo.build_agent_label}
     stages {
@@ -25,5 +28,3 @@ pipeline {
         }
     }
 }
-def buildOptions = 'build_options'
-def propertyInfo = readFile ('buildOptions') 
