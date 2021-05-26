@@ -11,12 +11,12 @@ def call ( Map propertyInfo ) {
         }
     }
 */
-   
-node {
-    def buildOptions = 'build_options'
-    def propertyInfo = load 'buildOptions'
+      
 pipeline {
     agent any //{ label propertyInfo.build_agent_label}
+    environment {
+        propertyInfo = load 'build_options'
+    }
     stages {
         stage('testing build file') {
             steps {
@@ -27,4 +27,5 @@ pipeline {
         }
     }
 }
-}
+//def buildOptions = 'build_options'
+//def propertyInfo = load 'buildOptions'
