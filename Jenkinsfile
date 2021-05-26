@@ -28,7 +28,7 @@ pipeline {
                 script {
                     checkout scm
                     def buildOptions = 'build_options.yaml'
-                    def propertyInfo = readYaml txt: "${buildOptions}"
+                    def propertyInfo = readYaml text: """
                     //propertyInfo << tmpInfo
                 }
             }
