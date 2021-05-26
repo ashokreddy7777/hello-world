@@ -18,7 +18,7 @@ def call ( Map propertyInfo ) {
     //def buildOptions = 'build_options'
 
 //def propertyInfo = readYaml file: 'build_options.yaml'
-*/
+
       
 pipeline {
     agent any 
@@ -39,6 +39,41 @@ pipeline {
                  echo "$(propertyInfo.build_agent_label)" 
                  '''               
             }
+        }
+    }
+}*/
+properties = null
+
+def loadProperties() {
+    node {
+        checkout scm
+        properties = readProperties file: 'pipeline.properties'
+        echo "Immediate one ${properties.repo}"
+    }
+}
+
+pipeline {
+    agent none
+
+    stages {           
+        stage ('prepare') {
+            agent any
+
+            steps {
+                script {
+                    loadProperties()
+                    echo "Later one ${properties.ansible}"
+                }
+            }
+        }
+        stage('Build') {
+
+            agent any
+
+            steps {
+                echo properties.branch
+            }
+
         }
     }
 }
