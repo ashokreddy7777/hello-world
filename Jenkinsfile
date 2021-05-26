@@ -24,11 +24,13 @@ pipeline {
     agent any 
     stages {
         stage('get info') {
-            checkout scm
+            steps {
+                checkout scm
             
-            def buildOptions = 'build_options.yaml'
-            def tmpInfo = readYaml file: "${buildOptions}"
-            propertyInfo << tmpInfo
+                def buildOptions = 'build_options.yaml'
+                def tmpInfo = readYaml file: "${buildOptions}"
+                propertyInfo << tmpInfo
+            }
         }
         stage('testing build file') {
             steps {
