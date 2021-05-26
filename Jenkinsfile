@@ -10,14 +10,26 @@ def call ( Map propertyInfo ) {
             propertyInfo << tmpInfo
         }
     }
+     //environment {
+    //    
+    //{ label propertyInfo.build_agent_label}
+    propertyInfo = load 'build_options'
+    //
+    //def buildOptions = 'build_options'
+
+//def propertyInfo = readYaml file: 'build_options.yaml'
 */
       
 pipeline {
-    agent any //{ label propertyInfo.build_agent_label}
-    //environment {
-    //    propertyInfo = load 'build_options'
-    //}
+    agent any 
     stages {
+        stage('get info') {
+            checkout scm
+            
+            def buildOptions = 'build_options.yaml'
+            def tmpInfo = readYaml file: "${buildOptions}"
+            propertyInfo << tmpInfo
+        }
         stage('testing build file') {
             steps {
                 sh '''
@@ -27,6 +39,3 @@ pipeline {
         }
     }
 }
-//def buildOptions = 'build_options'
-def buildOptions = 'build_options.yaml'
-def propertyInfo = readYaml file: 'build_options.yaml'
