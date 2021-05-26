@@ -21,7 +21,7 @@ pipeline {
         stage('testing build file') {
             steps {
                 sh '''
-                 echo "${propertyInfo.build_agent_label}" 
+                 echo $propertyInfo.build_agent_label 
                  '''               
             }
         }
