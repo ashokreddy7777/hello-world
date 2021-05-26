@@ -25,11 +25,12 @@ pipeline {
     stages {
         stage('get info') {
             steps {
-                checkout scm
-            
-                def buildOptions = 'build_options.yaml'
-                def tmpInfo = readYaml file: "${buildOptions}"
-                propertyInfo << tmpInfo
+                script {
+                    checkout scm
+                    def buildOptions = 'build_options.yaml'
+                    def tmpInfo = readYaml file: "${buildOptions}"
+                    propertyInfo << tmpInfo
+                }
             }
         }
         stage('testing build file') {
