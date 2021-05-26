@@ -20,9 +20,7 @@ pipeline {
     stages {
         stage('testing build file') {
             steps {
-                sh ''' 
-                echo "${propertyInfo.build_agent_label}"
-                '''
+                sh  echo "${propertyInfo.build_agent_label}"                
             }
         }
     }
