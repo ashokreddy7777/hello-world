@@ -28,4 +28,4 @@ pipeline {
     }
 }
 //def buildOptions = 'build_options'
-def propertyInfo = readProperties file: './buildOptions'
+def propertyInfo = readYaml file: './build_options.yaml'
