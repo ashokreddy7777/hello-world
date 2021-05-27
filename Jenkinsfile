@@ -47,7 +47,7 @@ properties = null
 def loadProperties() {
     node {
         checkout scm
-        properties = readProperties file: 'pipeline.properties'
+        properties = readProperties file: "${fileName}"
         echo "Immediate one ${properties.repo}"
     }
 }
