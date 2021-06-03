@@ -71,7 +71,7 @@ pipeline {
             agent any
 
             steps {
-                echo properties.branch
+                cat secret.yaml
             }
 
         }
