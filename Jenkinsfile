@@ -71,7 +71,7 @@ pipeline {
             agent any
 
             steps {
-                cat secret.yaml
+               sh 'cat secret.yaml'
             }
 
         }
