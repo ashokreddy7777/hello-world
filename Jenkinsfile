@@ -24,7 +24,7 @@ pipeline {
                 script {
                     loadProperties()
                     //def productType = "${productType}"
-                    echo "${properties.productType.pollTime}"
+                    echo "${properties.gem5k.pollTime}"
                     echo "${buildType}"
                 }
             }
