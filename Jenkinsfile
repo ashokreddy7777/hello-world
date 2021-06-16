@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     loadProperties()
-                    echo "${properties.gem.pollTime}"
+                    echo "${properties.pollTime}"
                 }
             }
         }
