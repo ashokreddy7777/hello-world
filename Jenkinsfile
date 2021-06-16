@@ -23,7 +23,8 @@ pipeline {
             steps {
                 script {
                     loadProperties()
-                    echo "properties.${productType}.pollTime"
+                    def productType = "${productType}"
+                    echo "${properties.productType.pollTime}"
                     echo "${buildType}"
                 }
             }
